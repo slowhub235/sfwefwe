@@ -1,0 +1,165 @@
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Slow Hub (Beta)", "DarkTheme")
+
+
+local Info = Window:NewTab("Info")
+local InfoSection = Info:NewSection("Information")
+
+
+InfoSection:NewLabel("This Script Was Made By @hgihon_drugs.")
+InfoSection:NewLabel("By Help Of @burgerwydd")
+
+
+InfoSection:NewButton("Copy Our Discord Link", "copy the Discord server link", function()
+    setclipboard("https://discord.gg/CmjFBBQcWU")
+    print("Link copied to clipboard!")
+end)
+
+
+--Main
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Auto Parry")
+
+
+MainSection:NewButton("Auto Parry", "Turns on Auto Parry", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/RedCircleBlock"))()
+end)
+
+
+MainSection:NewButton("X To Spam", "Auto Spams", function()
+    local UserInputService = game:GetService("UserInputService")
+
+local CLICKS_PER_SECOND = 10000 -- You can change this to 100 if needed
+local CLICK_INTERVAL = 1000 / CLICKS_PER_SECOND
+
+local holdingX = false
+
+-- Replace this with your actual clicking logic
+local function simulateClick()
+    local function leftclick()
+VirtualInputManager:SendMouseButtonEvent(0, 0, 0, true, game, 0)
+end
+end
+
+-- Start the auto-clicking loop
+local function startClicking()
+    task.spawn(function()
+        while holdingX do
+            simulateClick()
+            task.wait(CLICK_INTERVAL)
+        end
+    end)
+end
+
+-- Input detection
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed and input.KeyCode == Enum.KeyCode.X then
+        if not holdingX then
+            holdingX = true
+            startClicking()
+        end
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input, gameProcessed)
+    if input.KeyCode == Enum.KeyCode.X then
+        holdingX = false
+    end
+end)
+
+end)
+
+
+Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+    if state then
+        -- Presses the Q key every 1 second
+local VirtualInputManager = game:GetService("VirtualInputManager")
+
+while true do
+    VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+    wait(0.1) -- short key hold
+    VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Q, false, game)
+    wait(1) -- wait 1 second before pressing again
+end
+
+    else
+        
+    end
+end)
+
+
+MainSection:NewLabel("Press X To Enable/Disable Auto Spam")
+
+
+--misc
+local Misc = Window:NewTab("misc")
+local MiscSection = Misc:NewSection("toggles/buttons")
+
+
+MiscSection:NewToggle("day/night", "changes day time", function(state)
+    if state then
+        loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Night%20Time%20Toggle.txt"))()
+    else
+        loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Night%20Time%20Toggle.txt"))()
+    end
+end)
+
+MiscSection:NewButton("Esp", "Draws boxes around other players", function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/WRD%20ESP.txt"))()
+end)
+
+MiscSection:NewButton("inf yield", "fun tool to use", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+
+local Legit = Window:NewTab("Trigger Bot")
+local LegitSection = Legit:NewSection("Trigger Bot")
+
+
+LegitSection:NewButton(" Trigger Bot(dont use spam) ", "clicks when ball is close to you", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SpiderScriptRB/Blade-ball-OP-/refs/heads/main/Protected_3291800768430903.txt'))()
+end)
+
+
+LegitSection:NewButton(" Trigger Bot Spam ", "Trigger Bot Spam ", function()
+    local CLICKS_PER_SECOND = 100 -- You can change this to 100 if needed
+local CLICK_INTERVAL = 10 / CLICKS_PER_SECOND
+
+local holdingX = false
+
+-- Replace this with your actual clicking logic
+local function simulateClick()
+    local function leftclick()
+VirtualInputManager:SendMouseButtonEvent(0, 0, 0, true, game, 0)
+end
+end
+
+-- Start the auto-clicking loop
+local function startClicking()
+    task.spawn(function()
+        while holdingX do
+            simulateClick()
+            task.wait(CLICK_INTERVAL)
+        end
+    end)
+end
+
+-- Input detection
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed and input.KeyCode == Enum.KeyCode.X then
+        if not holdingX then
+            holdingX = true
+            startClicking()
+        end
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input, gameProcessed)
+    if input.KeyCode == Enum.KeyCode.X then
+        holdingX = false
+    end
+end)
+
+end)
